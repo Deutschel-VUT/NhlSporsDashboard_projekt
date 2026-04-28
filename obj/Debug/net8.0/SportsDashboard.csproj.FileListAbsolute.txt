@@ -27,3 +27,4 @@ C:\Users\jared\OneDrive\Plocha\Škola\VPC\vob\Projekt_test2\obj\Debug\net8.0\ref
 C:\Users\jared\OneDrive\Plocha\Škola\VPC\vob\Projekt_test2\obj\Debug\net8.0\SportsDashboard.pdb
 C:\Users\jared\OneDrive\Plocha\Škola\VPC\vob\Projekt_test2\obj\Debug\net8.0\SportsDashboard.genruntimeconfig.cache
 C:\Users\jared\OneDrive\Plocha\Škola\VPC\vob\Projekt_test2\obj\Debug\net8.0\ref\SportsDashboard.dll
+C:\Users\jared\OneDrive\Plocha\Škola\VPC\vob\Projekt_test2\obj\Debug\net8.0\SportsDashboard.sourcelink.json

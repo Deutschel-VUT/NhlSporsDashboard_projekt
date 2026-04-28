@@ -48,9 +48,9 @@ while (!cts.IsCancellationRequested)
                 var best = StatsProcessor.BestTeam(teamStats);
                 var offensive = StatsProcessor.MostOffensiveTeam(teamStats);
                 if (best is not null)
-                    Console.WriteLine($"\n  🏆 Best win rate : {best.TeamName} ({best.WinRate}%)");
+                    Console.WriteLine($"\n  Best win rate : {best.TeamName} ({best.WinRate}%)");
                 if (offensive is not null)
-                    Console.WriteLine($"  🥅 Most offensive: {offensive.TeamName} ({offensive.AvgGoalsFor:F2} goals/game)");
+                    Console.WriteLine($"  Most offensive: {offensive.TeamName} ({offensive.AvgGoalsFor:F2} goals/game)");
                 break;
 
             // 3 - Top-scoring games
@@ -84,7 +84,7 @@ while (!cts.IsCancellationRequested)
 
             // 0 — Exit
             case 0:
-                Console.WriteLine("\n  Goodbye! 🏒");
+                Console.WriteLine("\n  Goodbye! ");
                 return;
 
             default:

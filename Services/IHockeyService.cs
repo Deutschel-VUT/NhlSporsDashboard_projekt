@@ -7,6 +7,5 @@ namespace SportsDashboard.Services;
 public interface IHockeyService
 {
     Task<IReadOnlyList<GameScore>> GetRecentScoresAsync(int days = 7, CancellationToken ct = default);
-    Task<IReadOnlyList<PlayoffSeries>> GetPlayoffSeriesAsync(CancellationToken ct = default);
     string ProviderName { get; }
 }

@@ -74,14 +74,7 @@ while (!cts.IsCancellationRequested)
                 var (avg, max, min, total) = StatsProcessor.GoalStats(cachedScores);
                 ConsoleUI.PrintGoalStats(avg, max, min, total, cachedScores.Count);
                 break;
-
-            // 5 - Playoff series
-            case 5:
-                ConsoleUI.PrintLoading("Fetching playoff bracket");
-                var series = await hockeyService.GetPlayoffSeriesAsync(cts.Token);
-                ConsoleUI.PrintPlayoffSeries(series);
-                break;
-
+                
             // 0 — Exit
             case 0:
                 Console.WriteLine("\n  Goodbye! ");

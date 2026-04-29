@@ -25,7 +25,6 @@ public static class ConsoleUI
         Console.WriteLine("  [2] Team statistics & standings");
         Console.WriteLine("  [3] Top-scoring games");
         Console.WriteLine("  [4] Goal statistics summary");
-        Console.WriteLine("  [5] Current playoff series");
         Console.WriteLine("  [0] Exit");
         Console.WriteLine();
         Console.Write("  > ");
@@ -107,25 +106,7 @@ public static class ConsoleUI
         Console.WriteLine($"  Max in one game: {max}");
         Console.WriteLine($"  Min in one game: {min}");
     }
-
-    // Playoffs
-    public static void PrintPlayoffSeries(IReadOnlyList<PlayoffSeries> series)
-    {
-        PrintSectionHeader("CURRENT PLAYOFF SERIES");
-
-        if (series.Count == 0)
-        {
-            Console.WriteLine("  No playoff data available.");
-            return;
-        }
-
-        foreach (var s in series)
-        {
-            var leader = s.HomeWins == s.AwayWins ? "TIED" : $"{s.Leader} leads";
-            Console.WriteLine($"  {s.HomeTeam,4} {s.HomeWins} - {s.AwayWins} {s.AwayTeam,-4}   {leader}");
-        }
-    }
-
+    
     // Error / info
     public static void PrintError(string message)
     {

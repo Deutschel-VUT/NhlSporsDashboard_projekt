@@ -42,15 +42,6 @@ public sealed class NhlApiService : IHockeyService, IDisposable
         return scores.OrderByDescending(g => g.GameTime).ToList();
     }
 
-    public async Task<IReadOnlyList<PlayoffSeries>> GetPlayoffSeriesAsync(
-        CancellationToken ct = default)
-    {
-        // Playoff bracket for current season
-        var json = await GetJsonAsync("playoff-bracket/now", ct);
-
-        return ParsePlayoffSeries(json);
-    }
-
     // Private helpers
     private async Task<List<GameScore>> FetchScoresForDateAsync(string date, CancellationToken ct)
     {
@@ -139,48 +130,6 @@ public sealed class NhlApiService : IHockeyService, IDisposable
 
         return scores;
     }
-
-    private static List<PlayoffSeries> ParsePlayoffSeries(JsonDocument doc)
-    {
-        var series = new List<PlayoffSeries>();
-
-        if (!doc.RootElement.TryGetProperty("rounds", out var rounds))
-            return series;
-
-        foreach (var round in rounds.EnumerateArray())
-        {
-            if (!round.TryGetProperty("series", out var seriesList)) continue;
-
-            foreach (var s in seriesList.EnumerateArray())
-            {
-                try
-                {
-                    var teams = s.GetProperty("matchupTeams");
-                    if (teams.GetArrayLength() < 2) continue;
-
-                    var t1 = teams[0];
-                    var t2 = teams[1];
-
-                    var team1 = t1.GetProperty("abbrev").GetString() ?? "???";
-                    var team2 = t2.GetProperty("abbrev").GetString() ?? "???";
-                    var wins1 = t1.TryGetProperty("wins", out var w1) ? w1.GetInt32() : 0;
-                    var wins2 = t2.TryGetProperty("wins", out var w2) ? w2.GetInt32() : 0;
-
-                    var status = s.TryGetProperty("seriesStatus", out var st)
-                        ? st.GetString() ?? "unknown"
-                        : "unknown";
-
-                    series.Add(new PlayoffSeries(team1, team2, wins1, wins2, status));
-                }
-                catch
-                {
-                 
-                }
-            }
-        }
-
-        return series;
-    }
-
+    
     public void Dispose() => _http.Dispose();
 }

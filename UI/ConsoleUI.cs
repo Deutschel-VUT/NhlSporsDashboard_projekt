@@ -52,7 +52,7 @@ public static class ConsoleUI
             if (dateStr != lastDate)
             {
                 Console.WriteLine();
-                Console.WriteLine($"  📅 {dateStr}");
+                Console.WriteLine($" {dateStr}");
                 lastDate = dateStr;
             }
 

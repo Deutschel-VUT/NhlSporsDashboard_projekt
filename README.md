@@ -11,7 +11,6 @@ Data jsou stahována z oficiálního, bezplatného NHL Stats API (`api-web.nhle.
 | 2 | Tabulka týmových statistik (výhry, góly, win%, průměr) |
 | 3 | Top 5 nejgólovějších zápasů |
 | 4 | Souhrnná statistika gólů (průměr, max, min, celkem) |
-| 5 | Aktuální playoff série |
 
 ## Architektura a SOLID
 

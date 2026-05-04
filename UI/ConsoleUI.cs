@@ -5,6 +5,7 @@ namespace SportsDashboard.UI;
 // All console rendering is isolated here.
 public static class ConsoleUI
 {
+    // For estetic 
     private const int Width = 62;
 
     // Menu
